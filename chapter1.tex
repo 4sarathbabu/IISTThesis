@@ -1,0 +1,46 @@
+\chapter{Introduction}\label{ch:introduction}
+
+Sample code for including figures, tables, algorithms, and citations are listed here. 
+
+\section{Including Figures}\label{sec:figures}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.15]{figures/latexlogo.pdf}
+	\caption{Sample figure}
+	\label{fig:latexlogo}
+\end{figure}
+
+\section{Including Algorithms}\label{sec:algorithms}
+\begin{algorithm}[h]
+	\caption{Sum of first $N$ natural numbers}
+	\begin{algorithmic}[1]
+		\State $S \leftarrow 0$
+		\For {$i=1$ to $N$}
+			\State $ S \leftarrow S + i $
+		\EndFor{}
+		\State Output $S$
+	\end{algorithmic}
+	\label{alg:sum}
+\end{algorithm}
+
+\section{Including Tables}\label{sec:tables}
+\begin{table}[H]
+	\centering
+	\caption{Sample table}
+	\begin{tabular}{| c | c | c |}\hline
+	\textbf{Parameter} & \textbf{x} & \textbf{y} \\\hline\hline
+	ABC & 2 & 4 \\\hline
+	DEF & 3 & 9 \\\hline	
+	\end{tabular}
+\end{table}
+
+\section{Citations}\label{sec:citations}
+Sample citation~\cite{lamport1994latex}.
+
+\section{Indexing}\label{sec:indexing} \LaTeX\ \index{LaTeX@\LaTeX} is a 
+type setting system written in \TeX\ language. \LaTeX\ 
+is a free software\index{Free software} originally developed by 
+Leslie Lamport in 1980s. 
+
+
+

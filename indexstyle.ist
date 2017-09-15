@@ -1,0 +1,7 @@
+headings_flag 1
+ 
+heading_prefix "\n\\large%
+\\noindent\\textbf{"heading_suffix "}\\par\\nopagebreak\n"
+ 
+item_0 "\n \\item \\small "
+

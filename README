@@ -1,0 +1,123 @@
+              ----------------------------------------
+               Guidelines for iist.cls LaTeX Template 
+              ----------------------------------------
+
+The LaTeX template 'iist.cls' is developed for creating reports/theses
+for undergraduate, graduate, and PhD students with minimal effort in
+scripting.
+
+1. How to Start?
+
+The template is defined in LaTeX class file 'iist.cls' included in the
+folder. The main LaTeX source file that needs to be built/compiled is
+'doct.tex'. At the first line of 'doct.tex', the document class is
+mentioned as the custom style iist. Options to the document class vary
+according to your degree and the type of report that you are
+writing. The variations are as follows:
+
+  B.Tech Internship: \documentclass[btech,internship,twoside]{iist} 
+  B.Tech Project: \documentclass[btech,project,twoside]{iist}    
+  M.Tech Thesis: \documentclass[mtech,thesis,twoside]{iist}     
+  M.S Thesis: \documentclass[ms,thesis,twoside]{iist}        
+  PhD Thesis: \documentclass[phd,thesis,twoside]{iist}       
+  PhD Synopsis: \documentclass[phd,synopsis,twoside]{iist}     
+
+Notes:
+
+ (a) If you want to create single sided report, remove the option
+     'twoside' from the above-mentioned line.
+
+ (b) The template uses Times as the default font. Instead, if you want
+     to use default LaTeX font, i.e., Computer Modern, uncomment the
+     line '\usepackage{times}' in 'doct.tex'.
+
+
+2. Specifying Credentials of the Report/Thesis
+
+Provisions for specifying the report/thesis credentials are made
+simple that you need to mention them only once. Credentials will be
+taken to the initial pages of the document, such as Title Page,
+Certificate, Declaration, and Acknowledgements, wherever required.
+The commands for providing the report credentials are as follows:
+
+  Document Title: \title{}
+  Author: \author{}
+  Author ID: \studentid{}
+  Project/Thesis Advisor: \advisor{}
+  Specialization: \specialization{}
+  Department: \department{}
+  Date: \date{}  
+
+
+3. Creating Initial Pages of the Report/Thesis
+
+The initial pages of report/thesis include Title Page, Certificate,
+Declaration, Dedication, and Acknowledgements. The content of these
+pages will be filled automatically with the credentials provided as
+described in Section 2. If you want to edit the contents in any of the
+initial pages (For example, editing the designation of Head of the
+Department or Supervisor in certificate page, content for dedication
+and acknowledgement), you need to edit the appropriate TeX source. The
+source files corresponding to the initial pages are as follows:
+
+  Certificate: 'certificate.tex'
+  Declaration: 'declaration.tex'
+  Dedication: 'dedication.tex'
+  Acknowledgements: 'acknowledgements.tex'
+  Abstract: 'abstract.tex'
+  Nomenclature: 'nomenclature.tex'
+	
+The pages Table of Contents, List of Figures, List of Tables, and List
+of Algorithms are automatically generated from the contents of the
+report/thesis. Since PhD synopsis does not require some of the initial
+pages, you can comment the lines \makecertificate, \makedeclaration,
+\makeacknowledgements, \makelistoffigures, \makelistoftables, and
+\makelistofalgorithms in 'doct.tex'.
+
+
+4. Addition of Chapters
+
+In order to include chapters, it is better to organize each chapter
+into different TeX files. For example 'chapter1.tex', 'chapter2.tex',
+'chapter3.tex' and so on. You can include each chapter in the report
+using the \makechapter command. For example, 'chapter1.tex' can be
+included using the command
+
+			\makechapter{chapter1}
+				
+Appendices can are also included as chapters, whose TeX source is
+specified in 'appendix.tex'.
+
+
+5. Addition of Bibliography
+
+Bibliographies can be added using BibTeX tool with the appropriate
+citation style. A separate file named doct.bib is provided to specify
+the BibTeX entries of the citations present in the report/thesis. In
+'doct.tex', bibliographies can be included in using the following
+commands
+
+			\bibliographystyle{IEEEtran}
+			\bibliography{doct}
+				
+In the template, the bibliography style of IEEE is used. However, you
+can replace the style IEEEtran with other styles such as unsrt, plain,
+and apa.
+
+
+6. Building the LaTeX Source
+
+If you have installed the tool latexmk, just build 'doct.tex' using
+latexmk. Otherwise, you need to follow the default LaTeX building
+process using the following steps:
+
+1. Build doct.tex using pdflatex
+2. Build doct.bib using bibtex
+3. Build doct.tex using pdflatex
+4. Build doct.tex using pdflatex
+
+Thank you. 
+If you find any errors or have any suggestions send mail to 
+Email: 4sarathbabu@gmail.com
+
+                                 o o o o

@@ -89,7 +89,7 @@
     citebordercolor = lime!70,
     urlbordercolor = red!50,
 }
-\titleformat{\chapter}[display]{\Large\bfseries}{\chaptertitlename\ 
+\titleformat{\chapter}[display]{\LARGE\bfseries}{\chaptertitlename\ 
 \thechapter}{1mm}{\huge} % Chapter title 
 \titleformat*{\section}{\Large\bfseries} % Section title
 \titleformat*{\subsection}{\large\bfseries} % Subsection title

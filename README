@@ -65,6 +65,7 @@ source files corresponding to the initial pages are as follows:
   Dedication: 'dedication.tex'
   Acknowledgements: 'acknowledgements.tex'
   Abstract: 'abstract.tex'
+  Abbreviations: 'abbreviations.tex'
   Nomenclature: 'nomenclature.tex'
 	
 The pages Table of Contents, List of Figures, List of Tables, and List

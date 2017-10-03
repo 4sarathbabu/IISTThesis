@@ -264,6 +264,17 @@
 		\listofalgorithms
 }
 
+%% ---- Abbreviations ---- %%
+\newcommand{\makeabbreviations}
+{
+		\newpage \cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{Abbreviations}
+		\chapter*{Abbreviations}
+		\vspace*{-5mm}
+		\input{nomenclature}
+}
+
 
 %% ---- Nomenclature ---- %%
 \newcommand{\makenomenclature}

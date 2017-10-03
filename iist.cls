@@ -70,6 +70,7 @@
 \usepackage[english]{babel}
 \usepackage{setspace}
 \usepackage{graphicx}
+\usepackage{longtable}
 \usepackage[T1]{fontenc}
 \usepackage{ifthen}
 \usepackage{algorithm}
@@ -291,10 +292,10 @@
 %% ---- Initialize Pages Format for Chapters ---- %%
 \newcommand{\makechaptersettings}
 {	
-	\newpage 
-	\setcounter{page}{0}
-	\cleardoublepage
-	\pagenumbering{arabic} 	
+       \newpage  
+       \cleardoublepage
+       \setcounter{page}{0}
+       \pagenumbering{arabic} 	
 }
 
 

@@ -80,7 +80,7 @@ pages, you can comment the lines \makecertificate, \makedeclaration,
 
 In order to include chapters, it is better to organize each chapter
 into different TeX files. For example 'chapter1.tex', 'chapter2.tex',
-'chapter3.tex' and so on. You can include each chapter in the report
+'chapter3.tex', and so on. You can include each chapter in the report
 using the \makechapter command. For example, 'chapter1.tex' can be
 included using the command
 

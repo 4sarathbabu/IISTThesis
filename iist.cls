@@ -272,7 +272,7 @@
 		\addcontentsline{toc}{chapter}{Abbreviations}
 		\chapter*{Abbreviations}
 		\vspace*{-5mm}
-		\input{nomenclature}
+		\input{abbreviations}
 }
 
 

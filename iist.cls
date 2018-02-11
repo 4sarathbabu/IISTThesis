@@ -133,7 +133,8 @@
 %% ---- Design of Title Page ---- %%
 \renewcommand{\maketitle}
 {	
-	\begin{center}
+        \renewcommand{\thepage}{CP-\arabic{page}}
+        \begin{center}
           \thispagestyle{empty}
                 \vspace*{1cm}
 		\begin{spacing}{1}
@@ -165,17 +166,17 @@
                 \end{spacing}
                 \vspace{4mm}
                 \textbf{\Date}
-	\end{center}
-	\newpage	
+        \end{center}
+        \newpage
 }
 
 
 %% ---- Design of Certificate Page ---- %%
 \newcommand{\makecertificate}
 {
-	\pagenumbering{roman} 
+        \newpage \cleardoublepage
 	\setcounter{page}{0}
-	\newpage \cleardoublepage
+        \pagenumbering{roman} 
 	\vspace*{5cm}
 	\begin{center}
 		{\LARGE \bf Certificate}

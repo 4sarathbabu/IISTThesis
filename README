@@ -1,6 +1,8 @@
               ----------------------------------------
                Guidelines for iist.cls LaTeX Template 
               ----------------------------------------
+              https://github.com/4sarathbabu/IISTThesis
+
 
 The LaTeX template 'iist.cls' is developed for creating reports/theses
 for undergraduate, graduate, and PhD students with minimal effort in
@@ -67,6 +69,7 @@ source files corresponding to the initial pages are as follows:
   Abstract: 'abstract.tex'
   Abbreviations: 'abbreviations.tex'
   Nomenclature: 'nomenclature.tex'
+  Publications: 'publications.tex'
 	
 The pages Table of Contents, List of Figures, List of Tables, and List
 of Algorithms are automatically generated from the contents of the
@@ -118,6 +121,9 @@ process using the following steps:
 4. Build doct.tex using pdflatex
 
 Thank you. 
+The latest version of the LaTeX template can be downloaded from 
+https://github.com/4sarathbabu/IISTThesis
+
 If you find any errors or have any suggestions send mail to 
 Email: 4sarathbabu@gmail.com
 

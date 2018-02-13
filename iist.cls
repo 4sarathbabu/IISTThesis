@@ -3,6 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Author - Sarath Babu
 %%% Email: 4sarathbabu@gmail.com
+%%% URL: https://github.com/4sarathbabu/IISTThesis
 
 %%---- Identification ---- %%
 \NeedsTeXFormat{LaTeX2e}
@@ -316,24 +317,37 @@
 }
 
 
+%% ---- Initialize Publications Settings ---- %%
+\newcommand{\makepublications}
+{
+		\newpage \cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{List of Publications}
+		\chapter*{List of Publications}
+		\input{publications}
+}
+
+
 %% ---- Initialize Appendix Settings ---- %%
 \newcommand{\makeappendixsettings}
 {
+	\newpage \cleardoublepage
 	\phantomsection
-	\appendix
+	%\appendix
 	\addcontentsline{toc}{chapter}{Appendices}
 	\renewcommand{\thechapter}{A}
+	\chapter*{Appendices}
+	\input{appendix}
 }
 
 
 %% ---- Initialize Index Settings ---- %%
 \newcommand{\makeindexsettings}
 {
+	\newpage \cleardoublepage
 	\phantomsection
 	\openup -3.25mm
 	\addcontentsline{toc}{chapter}{Index}
 	\printindex
 	\onehalfspacing	
 }
-
-

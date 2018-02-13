@@ -89,8 +89,9 @@ included using the command
 
 			\makechapter{chapter1}
 				
-Appendices can are also included as chapters, whose TeX source is
-specified in 'appendix.tex'.
+Appendices and List of Publications can are also included as 
+chapters, whose TeX source is specified in 'appendix.tex' and 
+'publications.tex', respectively.
 
 
 5. Addition of Bibliography

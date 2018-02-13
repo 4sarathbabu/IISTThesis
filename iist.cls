@@ -147,15 +147,15 @@
 		\Doctype\ submitted \\\vspace{1mm} in partial fulfillment for 
 		the award of the degree of	
 		\\\vspace{8mm}
-		\textbf{\Degreetext}
+		\textbf{\large{\Degreetext}}
 		\\ \vspace{4mm}
 		in
 		\\ \vspace{4mm}
-		\textbf{\Specialization}
+		\textbf{\large{\Specialization}}
 		\\ \vspace{4mm}
 		by
 		\\ \vspace{4mm}
-		\textbf{\Author}
+		\textbf{\large{\Author}}
 		\\ \vspace{15mm}
 		\includegraphics[scale=0.2]{logo.pdf}
 		\\ \vspace{10mm}
@@ -166,7 +166,7 @@
 		  \textbf{Thiruvananthapuram, India}
                 \end{spacing}
                 \vspace{4mm}
-                \textbf{\Date}
+                \textbf{\large \Date}
         \end{center}
         \newpage
 }

@@ -84,10 +84,10 @@ pages, you can comment the lines \makecertificate, \makedeclaration,
 In order to include chapters, it is better to organize each chapter
 into different TeX files. For example 'chapter1.tex', 'chapter2.tex',
 'chapter3.tex', and so on. You can include each chapter in the report
-using the \makechapter command. For example, 'chapter1.tex' can be
+using the \input command. For example, 'chapter1.tex' can be
 included using the command
 
-			\makechapter{chapter1}
+			\input{chapter1}
 				
 Appendices and List of Publications can are also included as 
 chapters, whose TeX source is specified in 'appendix.tex' and 
@@ -96,11 +96,11 @@ chapters, whose TeX source is specified in 'appendix.tex' and
 
 5. Addition of Bibliography
 
-Bibliographies can be added using BibTeX tool with the appropriate
-citation style. A separate file named doct.bib is provided to specify
-the BibTeX entries of the citations present in the report/thesis. In
-'doct.tex', bibliographies can be included in using the following
-commands
+Bibliographies can be added using BibTeX tool with the appropriate 
+citation style. A separate file named 'doct.bib' is provided to 
+specify the BibTeX entries of the citations present in the 
+report/thesis. In 'doct.tex', bibliographies can be included in 
+using the following commands
 
 			\bibliographystyle{IEEEtran}
 			\bibliography{doct}
@@ -112,9 +112,9 @@ and apa.
 
 6. Building the LaTeX Source
 
-If you have installed the tool latexmk, just build 'doct.tex' using
-latexmk. Otherwise, you need to follow the default LaTeX building
-process using the following steps:
+If you have installed the tool 'latexmk', just build 'doct.tex' 
+using latexmk. Otherwise, you need to follow the default LaTeX 
+building process using the following steps:
 
 1. Build doct.tex using pdflatex
 2. Build doct.bib using bibtex

@@ -74,8 +74,7 @@
 \usepackage{longtable}
 \usepackage[T1]{fontenc}
 \usepackage{ifthen}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
+\usepackage[ruled, algochapter, linesnumbered]{algorithm2e}
 \usepackage{titlesec}
 \usepackage{xcolor}
 \usepackage{imakeidx}
@@ -127,9 +126,6 @@
 \newcommand{\Title}{\@title}
 \newcommand{\Author}{\@author}
 \newcommand{\Date}{\@date}
-
-\renewcommand{\thealgorithm}{\arabic{chapter}.\arabic{algorithm}} 
-
 
 %% ---- Design of Title Page ---- %%
 \renewcommand{\maketitle}
@@ -298,14 +294,6 @@
        \cleardoublepage
        \setcounter{page}{0}
        \pagenumbering{arabic} 	
-}
-
-
-%% ---- Add a New Chapter ---- %%
-\newcommand{\makechapter}[1]
-{
-	\setcounter{algorithm}{0}
-	\include{#1}
 }
 
 

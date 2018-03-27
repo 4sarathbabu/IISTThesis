@@ -321,11 +321,9 @@
 {
 	\newpage \cleardoublepage
 	\phantomsection
-	%\appendix
+	\appendix
 	\addcontentsline{toc}{chapter}{Appendices}
-	\renewcommand{\thechapter}{A}
-	\chapter*{Appendices}
-	\input{appendix}
+        \renewcommand{\thechapter} {\Alph{chapter}}
 }
 
 

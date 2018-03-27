@@ -9,13 +9,14 @@ for undergraduate, graduate, and PhD students with minimal effort in
 scripting.
 
 1. How to Start?
+----------------
 
-The template is defined in LaTeX class file 'iist.cls' included in the
-folder. The main LaTeX source file that needs to be built/compiled is
-'doct.tex'. At the first line of 'doct.tex', the document class is
-mentioned as the custom style iist. Options to the document class vary
-according to your degree and the type of report that you are
-writing. The variations are as follows:
+The template is defined in LaTeX class file 'iist.cls' included in 
+the folder. The main LaTeX source file that needs to be 
+built/compiled is 'doct.tex'. At the first line of 'doct.tex', the 
+document class is mentioned as the custom style 'iist'. Options to 
+the document class vary according to your degree and the type of 
+report that you are writing. The variations are as follows:
 
   B.Tech Internship: \documentclass[btech,internship,twoside]{iist} 
   B.Tech Project: \documentclass[btech,project,twoside]{iist}    
@@ -35,6 +36,7 @@ Notes:
 
 
 2. Specifying Credentials of the Report/Thesis
+----------------------------------------------
 
 Provisions for specifying the report/thesis credentials are made
 simple that you need to mention them only once. Credentials will be
@@ -52,6 +54,7 @@ The commands for providing the report credentials are as follows:
 
 
 3. Creating Initial Pages of the Report/Thesis
+----------------------------------------------
 
 The initial pages of report/thesis include Title Page, Certificate,
 Declaration, Dedication, and Acknowledgements. The content of these
@@ -79,28 +82,33 @@ pages, you can comment the lines \makecertificate, \makedeclaration,
 \makelistofalgorithms in 'doct.tex'.
 
 
-4. Addition of Chapters
+4. Addition of Chapters, Appendices, and List of Publications
+-------------------------------------------------------------
 
-In order to include chapters, it is better to organize each chapter
-into different TeX files. For example 'chapter1.tex', 'chapter2.tex',
-'chapter3.tex', and so on. You can include each chapter in the report
-using the \input command. For example, 'chapter1.tex' can be
-included using the command
+In order to include chapters, it is recommended to organize chapters 
+into different TeX files. For example, 'chapter1.tex', 
+'chapter2.tex', 'chapter3.tex', and so on (For an example, three 
+chapters are included in this template). You can include each 
+chapter in the report using the command '\input'. For example, 
+'chapter1.tex' can be included using the command
 
 			\input{chapter1}
 				
-Appendices and List of Publications can are also included as 
-chapters, whose TeX source is specified in 'appendix.tex' and 
-'publications.tex', respectively.
+Similar to chapters, appendices are also included as separate 
+chapters. As an example two appendices 'Appendix A' and 'Appendix B' 
+are included with respective source files in 'appendixA.tex' and 
+'appendixB.tex', respectively. List of publications is also added as 
+a chapter with TeX source in 'publications.tex'.
 
 
 5. Addition of Bibliography
+---------------------------
 
 Bibliographies can be added using BibTeX tool with the appropriate 
 citation style. A separate file named 'doct.bib' is provided to 
 specify the BibTeX entries of the citations present in the 
-report/thesis. In 'doct.tex', bibliographies can be included in 
-using the following commands
+report/thesis. In 'doct.tex', bibliographies can be included using 
+the following commands
 
 			\bibliographystyle{IEEEtran}
 			\bibliography{doct}
@@ -111,6 +119,7 @@ and apa.
 
 
 6. Building the LaTeX Source
+----------------------------
 
 If you have installed the tool 'latexmk', just build 'doct.tex' 
 using latexmk. Otherwise, you need to follow the default LaTeX 

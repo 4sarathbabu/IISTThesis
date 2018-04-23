@@ -79,7 +79,8 @@ of Algorithms are automatically generated from the contents of the
 report/thesis. Since PhD synopsis does not require some of the initial
 pages, you can comment the lines \makecertificate, \makedeclaration,
 \makeacknowledgements, \makelistoffigures, \makelistoftables, and
-\makelistofalgorithms in 'doct.tex'.
+\makelistofalgorithms in 'doct.tex'. Please DO NOT comment the line
+\makechaptersettings.
 
 
 4. Addition of Chapters, Appendices, and List of Publications
@@ -100,8 +101,30 @@ are included with respective source files in 'appendixA.tex' and
 'appendixB.tex', respectively. List of publications is also added as 
 a chapter with TeX source in 'publications.tex'.
 
+For PhD synopsis: Since PhD synopsis does not contain chapters, you
+can include the entire content in 'chapter1.tex' and include it in
+'doct.tex'. Also, remove the first line '\chapter{...}' from
+'chapter1.tex'.
 
-5. Addition of Bibliography
+
+5. Writing Theorems, Proofs, Lemmas, Definitions, Remarks,
+-----------------------------------------------------------
+Assumptions, and Propositions
+------------------------------
+
+For writing different math environments such as theorems and proofs
+the following environments are defined.
+
+    Theorem     :    \begin{theorem} ... \end{theorem}
+    Proof       :    \begin{proof} ... \end{proof}             
+    Lemma       :    \begin{lemma} ... \end{lemma}
+    Assumption  :    \begin{assumption} ... \end{assumption}
+    Proposition :    \begin{proposition} ... \end{proposition}
+    Definition  :    \begin{definition} ... \end{definition}
+    Remarks     :    \begin{remark} ... \end{remark}
+
+
+6. Addition of Bibliography
 ---------------------------
 
 Bibliographies can be added using BibTeX tool with the appropriate 
@@ -118,7 +141,7 @@ can replace the style IEEEtran with other styles such as unsrt, plain,
 and apa.
 
 
-6. Building the LaTeX Source
+7. Building the LaTeX Source
 ----------------------------
 
 If you have installed the tool 'latexmk', just build 'doct.tex' 

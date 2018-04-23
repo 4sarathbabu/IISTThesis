@@ -14,6 +14,7 @@ are listed here.
 
 \section{Including Algorithms}\label{sec:algorithms}
 \begin{algorithm}[h]
+	%\SetAlgoVlined
 	\caption{Sum of $N$ numbers}
 	$S = 0$\\
 	\For{$i=1:N$}
@@ -25,6 +26,7 @@ are listed here.
 
 
 \section{Including Tables}\label{sec:tables}
+In this section, Table~\ref{tab:sample1} is explained.
 \begin{table}[h]
 	\centering
 	\caption{Sample table}
@@ -33,7 +35,44 @@ are listed here.
 	ABC & 2 & 4 \\\hline
 	DEF & 3 & 9 \\\hline	
 	\end{tabular}
+	\label{tab:sample1}
 \end{table}
+
+\section{Theorem, Proof, and Lemma}
+\label{sec:theorem}
+\begin{theorem}
+  \label{thm:th1}
+  This is my first theorem.
+\end{theorem}
+\begin{proof}
+  This is my proof.
+\end{proof}
+\begin{lemma}
+  This is a content for sample lemma. 
+\end{lemma}
+
+\section{Assumption, Definition, Remark, and Proposition}
+\label{sec:assum}
+
+\begin{assumption}
+\label{asm:as1}
+This is my first assumption of this document.
+\end{assumption}
+
+\begin{definition}
+\label{def:def1}
+This is the text for my first definition.
+\end{definition}
+
+\begin{remark}
+\label{rem:rem1}
+This is a remark for this chapter.
+\end{remark}
+
+\begin{proposition}
+\label{prp:prop1}
+First proposition in this chapter.
+\end{proposition}
 
 \section{Citations}\label{sec:citations}
 Sample citation~\cite{lamport1994latex}.

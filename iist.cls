@@ -94,7 +94,8 @@
 \usepackage{hyperref}
 \usepackage{emptypage}
 \usepackage[labelfont=bf]{caption}
-
+\usepackage{mathtools}
+\usepackage{amsthm}
 
 %% ---- Content Styles ---- %%
 \onehalfspacing   % Line spacing
@@ -114,6 +115,14 @@
 \setcounter{secnumdepth}{4} % Setting section numbering to 4 levels
 \setcounter{tocdepth}{1} % Set section numbering depth in ToC to 2 levels
 
+%% ---- Assumption, Definition, Remark, Theorem, Proposition, and
+%% Lemma ---- %%
+\newtheorem{assumption}{Assumption}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
 
 %% ---- Custom Commands ---- %%
 \newcommand{\department}[1]
@@ -177,16 +186,16 @@
                 \vspace{4mm}
                 \textbf{\large \Date}
         \end{center}
-        \newpage
+        \newpage~\thispagestyle{empty}\newpage
+        \pagenumbering{roman}
 }
 
 
 %% ---- Design of Certificate Page ---- %%
 \newcommand{\makecertificate}
 {
-        \newpage \cleardoublepage
-	\setcounter{page}{0}
-        \pagenumbering{roman} 
+        \cleardoublepage
+        \newpage
 	\vspace*{5cm}
 	\begin{center}
 		{\LARGE \bf Certificate}
@@ -252,61 +261,67 @@
 %% ---- List of Tables ---- %%
 \newcommand{\makelistoftables}
 {
-		\newpage \cleardoublepage
-		\phantomsection
-		\addcontentsline{toc}{chapter}{List of Tables}
-		\listoftables
+        \newpage \cleardoublepage
+        \phantomsection
+        \addcontentsline{toc}{chapter}{List of Tables}
+        \listoftables
 }
 
 %% ---- List of Figures ---- %%
 \newcommand{\makelistoffigures}
 {
-		\newpage \cleardoublepage
-		\phantomsection
-		\addcontentsline{toc}{chapter}{List of Figures}
-		\listoffigures
+	\newpage \cleardoublepage
+        \phantomsection
+        \addcontentsline{toc}{chapter}{List of Figures}
+        \listoffigures
 }
 
 %% ---- List of Algorithms ---- %%
 \newcommand{\makelistofalgorithms}
 {
-		\newpage \cleardoublepage
-		\phantomsection
-		\addcontentsline{toc}{chapter}{List of Algorithms}
-		\listofalgorithms
+	\newpage \cleardoublepage
+        \phantomsection
+        \addcontentsline{toc}{chapter}{List of Algorithms}
+        \listofalgorithms
 }
 
 %% ---- Abbreviations ---- %%
 \newcommand{\makeabbreviations}
 {
-		\newpage \cleardoublepage
-		\phantomsection
-		\addcontentsline{toc}{chapter}{Abbreviations}
-		\chapter*{Abbreviations}
-		\vspace*{-5mm}
-		\input{abbreviations}
+	\newpage \cleardoublepage
+        \phantomsection
+        \addcontentsline{toc}{chapter}{Abbreviations}
+        \chapter*{Abbreviations}
+        \vspace*{-5mm}
+        \input{abbreviations}
 }
 
 
 %% ---- Nomenclature ---- %%
 \newcommand{\makenomenclature}
 {
-		\newpage \cleardoublepage
-		\phantomsection
-		\addcontentsline{toc}{chapter}{Nomenclature}
-		\chapter*{Nomenclature}
-		\vspace*{-5mm}
-		\input{nomenclature}
+	\newpage \cleardoublepage
+        \phantomsection
+        \addcontentsline{toc}{chapter}{Nomenclature}
+        \chapter*{Nomenclature}
+        \vspace*{-5mm}
+        \input{nomenclature}
 }
 
 
 %% ---- Initialize Pages Format for Chapters ---- %%
 \newcommand{\makechaptersettings}
 {	
-       \newpage  
-       \cleardoublepage
-       \setcounter{page}{0}
-       \pagenumbering{arabic} 	
+        \newpage  
+        \cleardoublepage
+        \setcounter{page}{0}
+        \pagenumbering{arabic}
+        \ifthenelse{\equal{\Doctype}{synopsis}}
+        {
+          \renewcommand{\thesection}{\arabic{section}}
+          \setcounter{table}{0}
+        }
+        {}
 }
 
 
@@ -321,21 +336,23 @@
 %% ---- Initialize Publications Settings ---- %%
 \newcommand{\makepublications}
 {
-		\newpage \cleardoublepage
-		\phantomsection
-		\addcontentsline{toc}{chapter}{List of Publications}
-		\chapter*{List of Publications}
-		\input{publications}
+        \newpage
+        \ifthenelse{\equal{\Doctype}{synopsis}}{}{\cleardoublepage}
+        \phantomsection
+        \addcontentsline{toc}{chapter}{List of Publications}
+        \chapter*{List of Publications}
+        \input{publications}
 }
 
 
 %% ---- Initialize Appendix Settings ---- %%
 \newcommand{\makeappendixsettings}
 {
-	\newpage \cleardoublepage
-	\phantomsection
-	\appendix
-	\addcontentsline{toc}{chapter}{Appendices}
+        \newpage
+        \ifthenelse{\equal{\Doctype}{synopsis}}{}{\cleardoublepage}
+        \phantomsection
+        \appendix
+        \addcontentsline{toc}{chapter}{Appendices}
         \renewcommand{\thechapter} {\Alph{chapter}}
 }
 
@@ -343,10 +360,11 @@
 %% ---- Initialize Index Settings ---- %%
 \newcommand{\makeindexsettings}
 {
-	\newpage \cleardoublepage
-	\phantomsection
-	\openup -3.25mm
-	\addcontentsline{toc}{chapter}{Index}
-	\printindex
-	\onehalfspacing	
+        \newpage
+        \ifthenelse{\equal{\Doctype}{synopsis}}{}{\cleardoublepage}
+        \phantomsection
+        \openup -3.25mm
+        \addcontentsline{toc}{chapter}{Index}
+        \printindex
+        \onehalfspacing
 }

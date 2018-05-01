@@ -155,7 +155,8 @@
         \renewcommand{\thepage}{CP-\arabic{page}}
         \begin{center}
           \thispagestyle{empty}
-                \vspace*{1cm}
+                \vspace*{-5mm}
+                \vfill
 		\begin{spacing}{1}
 		\LARGE \bf \Title
 		\end{spacing}
@@ -185,6 +186,7 @@
                 \end{spacing}
                 \vspace{4mm}
                 \textbf{\large \Date}
+                \vfill
         \end{center}
         \newpage~\thispagestyle{empty}\newpage
         \pagenumbering{roman}

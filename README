@@ -76,8 +76,10 @@ source files corresponding to the initial pages are as follows:
 	
 The pages Table of Contents, List of Figures, List of Tables, and List
 of Algorithms are automatically generated from the contents of the
-report/thesis. Since PhD synopsis does not require some of the initial
-pages, you can comment the lines \makecertificate, \makedeclaration,
+report/thesis.
+
+Note: Since 'PhD synopsis' does not require some of the initial pages,
+you can comment the lines \makecertificate, \makedeclaration,
 \makeacknowledgements, \makelistoffigures, \makelistoftables, and
 \makelistofalgorithms in 'doct.tex'. Please DO NOT comment the line
 \makechaptersettings.

@@ -31,6 +31,9 @@
 \newcommand{\Specialization}{}
 \newcommand{\Advisor}{}
 \newcommand{\Studentid}{}
+\newcommand{\CPSpecialization}{}
+\newcommand{\CPTitle}{}
+\newcommand{\CPAuthor}{}
 
 
 %% ---- Options ---- %%
@@ -52,23 +55,23 @@
 }
 \DeclareOption{synopsis}
 {
-	\renewcommand{\Doctype}{synopsis}
+  \renewcommand{\Doctype}{synopsis}
 }
 \DeclareOption{internship}
 {
-	\renewcommand{\Doctype}{internship report}
+  \renewcommand{\Doctype}{internship report}
 }
 \DeclareOption{thesis}
 {
-	\renewcommand{\Doctype}{thesis}
+  \renewcommand{\Doctype}{thesis}
 }
 \DeclareOption{project}
 {
-	\renewcommand{\Doctype}{project report}
+  \renewcommand{\Doctype}{project report}
 }
 \DeclareOption{report}
 {
-	\renewcommand{\Doctype}{report}
+  \renewcommand{\Doctype}{report}
 }
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
@@ -97,6 +100,7 @@
 \usepackage{mathtools}
 \usepackage{amsthm}
 
+
 %% ---- Content Styles ---- %%
 \onehalfspacing   % Line spacing
 \hypersetup{ % Hyperlink set up
@@ -115,6 +119,7 @@
 \setcounter{secnumdepth}{4} % Setting section numbering to 4 levels
 \setcounter{tocdepth}{1} % Set section numbering depth in ToC to 2 levels
 
+
 %% ---- Assumption, Definition, Remark, Theorem, Proposition, and
 %% Lemma ---- %%
 \newtheorem{assumption}{Assumption}[chapter]
@@ -124,249 +129,281 @@
 \newtheorem{proposition}{Proposition}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
 
+
 %% ---- Custom Commands ---- %%
-\newcommand{\department}[1]
+\renewcommand{\title}[2][]
 {
-	\renewcommand{\Department}{#1}
+  \newcommand{\Title}{#2}
+  \ifthenelse{\equal{#1}{}}
+  {
+    \renewcommand{\CPTitle}{#2}
+  }
+  {
+    \renewcommand{\CPTitle}{#1}
+  }
 }
 
-\newcommand{\specialization}[1]
+\renewcommand{\author}[2][]
 {
-	\renewcommand{\Specialization}{#1}
+  \newcommand{\Author}{#2}
+  \ifthenelse{\equal{#1}{}}
+  {
+    \renewcommand{\CPAuthor}{#2}
+  }
+  {
+    \renewcommand{\CPAuthor}{#1}
+  }
+}
+
+\newcommand{\department}[1]
+{
+  \renewcommand{\Department}{#1}
+}
+
+\newcommand{\specialization}[2][]
+{
+  \renewcommand{\Specialization}{#2}
+  \ifthenelse{\equal{#1}{}}
+  {
+    \renewcommand{\CPSpecialization}{#2}
+  }
+  {
+    \renewcommand{\CPSpecialization}{#1}
+  }
 }
 
 \newcommand{\advisor}[1]
 {
-	\renewcommand{\Advisor}{#1}
+  \renewcommand{\Advisor}{#1}
 }
 
 \newcommand{\studentid}[1]
 {
-	\renewcommand{\Studentid}{#1}
+  \renewcommand{\Studentid}{#1}
 }
 
-\newcommand{\Title}{\@title}
-\newcommand{\Author}{\@author}
+% \newcommand{\Title}{\@title}
+% \newcommand{\Author}{\@author}
 \newcommand{\Date}{\@date}
 
 %% ---- Design of Title Page ---- %%
 \renewcommand{\maketitle}
 {	
-        \renewcommand{\thepage}{CP-\arabic{page}}
-        \begin{center}
-          \thispagestyle{empty}
-                \vspace*{-5mm}
-                \vfill
-		\begin{spacing}{1}
-		\LARGE \bf \Title
-		\end{spacing}
-		\vspace{8mm}
-		\ifthenelse{\equal{\Doctype}{internship report}}
-		{An}{A}
-		\Doctype\ submitted \\\vspace{1mm} in partial fulfillment for 
-		the award of the degree of	
-		\\\vspace{8mm}
-		\textbf{\large{\Degreetext}}
-		\\ \vspace{4mm}
-		in
-		\\ \vspace{4mm}
-		\textbf{\large{\Specialization}}
-		\\ \vspace{4mm}
-		by
-		\\ \vspace{4mm}
-		\textbf{\large{\Author}}
-		\\ \vspace{15mm}
-		\includegraphics[scale=0.2]{logo.pdf}
-		\\ \vspace{10mm}
-		\begin{spacing}{1.25}
-                \large
-		  \textbf{Department of \Department}\\
-		  \textbf{Indian Institute of Space Science and Technology}\\
-		  \textbf{Thiruvananthapuram, India}
-                \end{spacing}
-                \vspace{4mm}
-                \textbf{\large \Date}
-                \vfill
-        \end{center}
-        \newpage~\thispagestyle{empty}\newpage
-        \pagenumbering{roman}
+  \renewcommand{\thepage}{CP-\arabic{page}}
+  \begin{center}
+    \thispagestyle{empty}
+    \vspace*{-5mm}
+    \vfill
+    \begin{spacing}{1}
+      \LARGE \bf \CPTitle
+    \end{spacing}
+    \vspace{8mm}
+    \ifthenelse{\equal{\Doctype}{internship report}}
+    {An}{A}
+    \Doctype\ submitted \\\vspace{1mm} in partial fulfillment for 
+    the award of the degree of	
+    \\\vspace{8mm}
+    \textbf{\large{\Degreetext}}
+    \\ \vspace{4mm}
+    in
+    \\ \vspace{4mm}
+    \textbf{\large{\CPSpecialization}}
+    \\ \vspace{4mm}
+    by
+    \\ \vspace{4mm}
+    \textbf{\large{\CPAuthor}}
+    \\ \vspace{15mm}
+    \includegraphics[scale=0.2]{logo.pdf}
+    \\ \vspace{10mm}
+    \begin{spacing}{1.25}
+      \large
+      \textbf{Department of \Department}\\
+      \textbf{Indian Institute of Space Science and Technology}\\
+      \textbf{Thiruvananthapuram, India}
+    \end{spacing}
+    \vspace{4mm}
+    \textbf{\large \Date}
+    \vfill
+  \end{center}
+  \newpage~\thispagestyle{empty}\newpage
+  \pagenumbering{roman}
 }
 
 
 %% ---- Design of Certificate Page ---- %%
 \newcommand{\makecertificate}
 {
-        \cleardoublepage
-        \newpage
-	\vspace*{5cm}
-	\begin{center}
-		{\LARGE \bf Certificate}
-	\end{center}
-	\input{certificate}
+  \cleardoublepage
+  \newpage
+  \vspace*{5cm}
+  \begin{center}
+    {\LARGE \bf Certificate}
+  \end{center}
+  \input{certificate}
 }
 
 
 %% ---- Design of Declaration Page ---- %%
 \newcommand{\makedeclaration}
 {
-	\newpage \cleardoublepage
-	\vspace*{1cm}
-	\begin{center}
-		{\LARGE \bf Declaration}
-	\end{center}
-	\input{declaration}
+  \newpage \cleardoublepage
+  \vspace*{1cm}
+  \begin{center}
+    {\LARGE \bf Declaration}
+  \end{center}
+  \input{declaration}
 }
 
 
 %% ---- Design of Dedication Page ---- %%
 \newcommand{\makededication}
 {
-	\newpage \cleardoublepage
-	\vspace*{0.3\textheight}
-	\input{dedication}
-	\vfill
+  \newpage \cleardoublepage
+  \vspace*{0.3\textheight}
+  \input{dedication}
+  \vfill
 }
 
 
 %% ---- Design of Acknowledgements ---- %%
 \newcommand{\makeacknowledgements}
 {
-	\newpage \cleardoublepage
-	\vspace*{1cm}
-	\begin{center}
-		{\LARGE \bf Acknowledgements}
-	\end{center}
-	\input{acknowledgements}
+  \newpage \cleardoublepage
+  \vspace*{1cm}
+  \begin{center}
+    {\LARGE \bf Acknowledgements}
+  \end{center}
+  \input{acknowledgements}
 }
 
 
 %% ---- Design of Abstract ---- %%
 \newcommand{\makeabstract}
 {
-	\newpage \cleardoublepage
-	\vspace*{1cm}
-	\begin{center}
-		{\LARGE \bf Abstract}
-	\end{center}
-	\input{abstract}
+  \newpage \cleardoublepage
+  \vspace*{1cm}
+  \begin{center}
+    {\LARGE \bf Abstract}
+  \end{center}
+  \input{abstract}
 }
 
 
 %% ---- Design of Table of Contents ---- %%
 \newcommand{\maketableofcontents}
 {
-	% --- Basic Table of Contents --- %
-	\newpage \cleardoublepage
-	\tableofcontents
+  % --- Basic Table of Contents --- %
+  \newpage \cleardoublepage
+  \tableofcontents
 }
 
 %% ---- List of Tables ---- %%
 \newcommand{\makelistoftables}
 {
-        \newpage \cleardoublepage
-        \phantomsection
-        \addcontentsline{toc}{chapter}{List of Tables}
-        \listoftables
+  \newpage \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{List of Tables}
+  \listoftables
 }
 
 %% ---- List of Figures ---- %%
 \newcommand{\makelistoffigures}
 {
-	\newpage \cleardoublepage
-        \phantomsection
-        \addcontentsline{toc}{chapter}{List of Figures}
-        \listoffigures
+  \newpage \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{List of Figures}
+  \listoffigures
 }
 
 %% ---- List of Algorithms ---- %%
 \newcommand{\makelistofalgorithms}
 {
-	\newpage \cleardoublepage
-        \phantomsection
-        \addcontentsline{toc}{chapter}{List of Algorithms}
-        \listofalgorithms
+  \newpage \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{List of Algorithms}
+  \listofalgorithms
 }
 
 %% ---- Abbreviations ---- %%
 \newcommand{\makeabbreviations}
 {
-	\newpage \cleardoublepage
-        \phantomsection
-        \addcontentsline{toc}{chapter}{Abbreviations}
-        \chapter*{Abbreviations}
-        \vspace*{-5mm}
-        \input{abbreviations}
+  \newpage \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Abbreviations}
+  \chapter*{Abbreviations}
+  \vspace*{-5mm}
+  \input{abbreviations}
 }
 
 
 %% ---- Nomenclature ---- %%
 \newcommand{\makenomenclature}
 {
-	\newpage \cleardoublepage
-        \phantomsection
-        \addcontentsline{toc}{chapter}{Nomenclature}
-        \chapter*{Nomenclature}
-        \vspace*{-5mm}
-        \input{nomenclature}
+  \newpage \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Nomenclature}
+  \chapter*{Nomenclature}
+  \vspace*{-5mm}
+  \input{nomenclature}
 }
 
 
 %% ---- Initialize Pages Format for Chapters ---- %%
 \newcommand{\makechaptersettings}
 {	
-        \newpage  
-        \cleardoublepage
-        \setcounter{page}{0}
-        \pagenumbering{arabic}
-        \ifthenelse{\equal{\Doctype}{synopsis}}
-        {
-          \renewcommand{\thesection}{\arabic{section}}
-          \setcounter{table}{0}
-        }
-        {}
+  \newpage  
+  \cleardoublepage
+  \setcounter{page}{0}
+  \pagenumbering{arabic}
+  \ifthenelse{\equal{\Doctype}{synopsis}}
+  {
+    \renewcommand{\thesection}{\arabic{section}}
+    \setcounter{table}{0}
+  }
+  {}
 }
 
 
 %% ---- Initialize Bibliography Settings ---- %%
 \newcommand{\makebibsettings}
 {
-	\phantomsection
-	\addcontentsline{toc}{chapter}{Bibliography}
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Bibliography}
 }
 
 
 %% ---- Initialize Publications Settings ---- %%
 \newcommand{\makepublications}
 {
-        \newpage
-        \ifthenelse{\equal{\Doctype}{synopsis}}{}{\cleardoublepage}
-        \phantomsection
-        \addcontentsline{toc}{chapter}{List of Publications}
-        \chapter*{List of Publications}
-        \input{publications}
+  \newpage
+  \ifthenelse{\equal{\Doctype}{synopsis}}{}{\cleardoublepage}
+  \phantomsection
+  \addcontentsline{toc}{chapter}{List of Publications}
+  \chapter*{List of Publications}
+  \input{publications}
 }
 
 
 %% ---- Initialize Appendix Settings ---- %%
 \newcommand{\makeappendixsettings}
 {
-        \newpage
-        \ifthenelse{\equal{\Doctype}{synopsis}}{}{\cleardoublepage}
-        \phantomsection
-        \appendix
-        \addcontentsline{toc}{chapter}{Appendices}
-        \renewcommand{\thechapter} {\Alph{chapter}}
+  \newpage
+  \ifthenelse{\equal{\Doctype}{synopsis}}{}{\cleardoublepage}
+  \phantomsection
+  \appendix
+  \addcontentsline{toc}{chapter}{Appendices}
+  \renewcommand{\thechapter} {\Alph{chapter}}
 }
 
 
 %% ---- Initialize Index Settings ---- %%
 \newcommand{\makeindexsettings}
 {
-        \newpage
-        \ifthenelse{\equal{\Doctype}{synopsis}}{}{\cleardoublepage}
-        \phantomsection
-        \openup -3.25mm
-        \addcontentsline{toc}{chapter}{Index}
-        \printindex
-        \onehalfspacing
+  \newpage
+  \ifthenelse{\equal{\Doctype}{synopsis}}{}{\cleardoublepage}
+  \phantomsection
+  \openup -3.25mm
+  \addcontentsline{toc}{chapter}{Index}
+  \printindex
+  \onehalfspacing
 }

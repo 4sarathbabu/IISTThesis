@@ -197,20 +197,26 @@
     \begin{spacing}{1}
       \LARGE \bf \CPTitle
     \end{spacing}
-    \vspace{8mm}
+    \vspace{6mm}
     \ifthenelse{\equal{\Doctype}{internship report}}
     {An}{A}
     \Doctype\ submitted \\\vspace{1mm} in partial fulfillment for 
     the award of the degree of	
     \\\vspace{8mm}
-    \textbf{\large{\Degreetext}}
-    \\ \vspace{4mm}
-    in
-    \\ \vspace{4mm}
-    \textbf{\large{\CPSpecialization}}
-    \\ \vspace{4mm}
-    by
-    \\ \vspace{4mm}
+    \textbf{\large{\Degreetext}}\\\vspace{4mm}
+    \ifthenelse{\equal{\Degree}{phd}}
+    {
+      \vspace{2mm}
+    }
+    {
+      in\\\vspace{4mm}
+      \textbf{\large{\CPSpecialization}}\\\vspace{4mm}
+    }
+    by\\\vspace{4mm}
+    \ifthenelse{\equal{\Degree}{phd}}
+    {
+      \vspace{2mm}
+    }{}
     \textbf{\large{\CPAuthor}}
     \\ \vspace{15mm}
     \includegraphics[scale=0.2]{logo.pdf}

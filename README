@@ -120,10 +120,12 @@ the following environments are defined.
     Theorem     :    \begin{theorem} ... \end{theorem}
     Proof       :    \begin{proof} ... \end{proof}             
     Lemma       :    \begin{lemma} ... \end{lemma}
+    Corollary	:    \begin{corollary} ... \end{corollary}
     Assumption  :    \begin{assumption} ... \end{assumption}
     Proposition :    \begin{proposition} ... \end{proposition}
     Definition  :    \begin{definition} ... \end{definition}
     Remarks     :    \begin{remark} ... \end{remark}
+    Example	:    \begin{example} ... \end{example}
 
 
 6. Addition of Bibliography

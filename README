@@ -121,11 +121,16 @@ the following environments are defined.
     Proof       :    \begin{proof} ... \end{proof}             
     Lemma       :    \begin{lemma} ... \end{lemma}
     Corollary	:    \begin{corollary} ... \end{corollary}
-    Assumption  :    \begin{assumption} ... \end{assumption}
     Proposition :    \begin{proposition} ... \end{proposition}
+    Conjecture	:    \begin{conjecture} ... \end{conjecture}
     Definition  :    \begin{definition} ... \end{definition}
-    Remarks     :    \begin{remark} ... \end{remark}
+    Condition	:    \begin{condition} ... \end{condition}
+    Assumption  :    \begin{assumption} ... \end{assumption}
     Example	:    \begin{example} ... \end{example}
+    Problem	:    \begin{problem} ... \end{problem}
+    Remark     	:    \begin{remark} ... \end{remark}
+    Claim	:    \begin{claim}  ... \end{claim}
+    Note	:    \begin{note} ... \end{note}
 
 
 6. Addition of Bibliography

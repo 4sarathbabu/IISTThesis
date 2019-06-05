@@ -122,14 +122,24 @@
 
 %% ---- Assumption, Definition, Remark, Theorem, Proposition, and
 %% Lemma ---- %%
-\newtheorem{assumption}{Assumption}[chapter]
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{remark}{Remark}[chapter]
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{proposition}{Proposition}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
 \newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{condition}{Condition}[chapter]
+\newtheorem{assumption}{Assumption}[chapter]
 \newtheorem{example}{Example}[chapter]
+\newtheorem{problem}{Problem}[chapter]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{claim}{Claim}[chapter]
+\newtheorem*{note}{Note}
 
 
 %% ---- Custom Commands ---- %%

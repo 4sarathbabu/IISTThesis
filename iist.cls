@@ -97,7 +97,8 @@
 \usepackage{hyperref}
 \usepackage{emptypage}
 \usepackage[labelfont=bf]{caption}
-\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsthm}
 
 

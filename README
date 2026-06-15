@@ -4,19 +4,20 @@
               https://github.com/4sarathbabu/IISTThesis
 
 
-The LaTeX template 'iist.cls' is developed for creating reports/theses
-for undergraduate, graduate, and PhD students with minimal effort in
-scripting.
+The 'iist.cls' LaTeX template enables students to prepare
+professional-quality reports and theses with minimal effort, while
+adhering to the formatting requirements of IIST.
+
 
 1. How to Start?
 ----------------
 
-The template is defined in LaTeX class file 'iist.cls' included in 
-the folder. The main LaTeX source file that needs to be 
-built/compiled is 'doct.tex'. At the first line of 'doct.tex', the 
-document class is mentioned as the custom style 'iist'. Options to 
-the document class vary depending on your degree and the type of 
-report that you are writing. The variations are as follows:
+The template is implemented through the LaTeX class file 'iist.cls',
+which is included in this repository. The main document to be compiled
+is 'doct.tex'. The first line of doct.tex specifies the document class
+and its options, which determine the degree program and document type
+(e.g., internship report, project report, thesis, or synopsis). The
+supported document class configurations are listed below.
 
   B.Tech Internship: \documentclass[btech,internship,twoside]{iist} 
   B.Tech Project: \documentclass[btech,project,twoside]{iist}    
@@ -27,23 +28,24 @@ report that you are writing. The variations are as follows:
 
 Notes:
 
- (a) If you want to create single sided report, remove the option
-     'twoside' from the above-mentioned line.
+ (a) To generate a single-sided document, remove the 'twoside' option
+     from the '\documentclass' declaration.
 
- (b) The template uses Times as the default font. Instead, if you want
-     to use default LaTeX font, i.e., Computer Modern, comment the
-     line '\usepackage{times}' in 'doct.tex'.
+ (b) The template uses Computer Modern as the default font. To use
+     Times New Roman-style fonts instead, add the following line
+     immediately after the '\documentclass' declaration in doct.tex:
+
+     \usepackage{times}
 
 
 2. Specifying Credentials of the Report/Thesis
 ----------------------------------------------
 
-Provisions for specifying the report/thesis credentials are made
-simple that you need to mention them only once in the file
-'doct.tex'. Credentials will be automatically taken to the initial
-pages of the document, such as Title Page, Certificate, Declaration,
-and Acknowledgements, wherever required.  The commands for providing
-the report credentials are as follows:
+The template simplifies document preparation by requiring report or
+thesis information to be specified only once in 'doct.tex'. This
+information is automatically propagated to the relevant front-matter
+pages, including the Title Page, Certificate, Declaration, and
+Acknowledgements. The available metadata commands are listed below:
 
   Document Title: \title{}
   Author: \author{}
@@ -57,15 +59,11 @@ the report credentials are as follows:
 3. Creating Initial Pages of the Report/Thesis
 ----------------------------------------------
 
-The initial pages of the report/thesis include Title Page,
-Certificate, Declaration, Dedication, and Acknowledgements. The
-content of these pages will be filled automatically with the
-credentials provided as described in Section 2. If you want to edit
-the contents in any of the initial pages (For example, editing the
-designation of Head of the Department or Supervisor in certificate
-page, content for dedication and acknowledgement), you need to edit
-the appropriate TeX source. The source files corresponding to the
-initial pages are as follows:
+The front-matter pages, including the Title Page, Certificate,
+Declaration, Dedication, and Acknowledgements, are generated
+automatically using the document information provided in
+'doct.tex'. To customize the content of any of these pages, edit the
+corresponding TeX source file listed below.
 
   Certificate: 'certificate.tex'
   Declaration: 'declaration.tex'
@@ -75,41 +73,39 @@ initial pages are as follows:
   Abbreviations: 'abbreviations.tex'
   Nomenclature: 'nomenclature.tex'
   Publications: 'publications.tex'
-	
-The pages Table of Contents, List of Figures, List of Tables, and List
-of Algorithms are automatically generated from the contents of the
-report/thesis.
 
-Note: Since 'PhD synopsis' does not require some of the initial pages,
-you can comment the lines \makecertificate, \makedeclaration,
-\makededication, \makeacknowledgements, \makelistoffigures,
-\makelistoftables, and \makelistofalgorithms in 'doct.tex'. Please DO
-NOT comment the line \makechaptersettings.
+The Table of Contents, List of Figures, List of Tables, and List of
+Algorithms are automatically generated and updated based on the
+content of the report or thesis.
+
+Note: A Ph.D. synopsis typically does not require certain front-matter
+pages. Therefore, you may comment out the following commands in
+'doct.tex': \makecertificate, \makedeclaration, \makededication,
+\makeacknowledgements, \makelistoffigures, \makelistoftables, and
+\makelistofalgorithms in 'doct.tex'. Please DO NOT comment the line
+\makechaptersettings.
 
 
 4. Addition of Chapters, Appendices, and List of Publications
 -------------------------------------------------------------
 
-In order to include chapters, it is recommended to organize chapters
-into different TeX files. For example, 'chapter1.tex', 'chapter2.tex',
-'chapter3.tex', and so on (As an example, three chapters are included
-in this template). You can include each chapter in the report using
-the command '\input'. For example, 'chapter1.tex' can be included
-using the command
+It is recommended to organize each chapter in a separate TeX source
+file (e.g., 'chapter1.tex', 'chapter2.tex', and
+'chapter3.tex'). Individual chapters can then be included in
+'doct.tex' using the '\input' command:
 
 			\input{chapter1}
-				
-in the file 'doct.tex'. Similar to chapters, appendices are also
-included as separate chapters. As an example two appendices 'Appendix
-A' and 'Appendix B' are included with respective source files in
-'appendixA.tex' and 'appendixB.tex', respectively. List of
-publications is also added as a chapter with TeX source in
-'publications.tex'.
 
-For PhD synopsis: Since PhD synopsis does not contain chapters, you
-can include the entire content in 'chapter1.tex' and include it in
-'doct.tex'. Also, remove the first line '\chapter{...}' from
-'chapter1.tex'.
+Appendices may be organized similarly, with each appendix maintained
+in a separate file. For example, this template includes
+'appendixA.tex' and 'appendixB.tex' for Appendix A and Appendix B,
+respectively. The list of publications can also be maintained as a
+separate chapter in 'publications.tex'.
+
+For a Ph.D. synopsis, which typically does not contain chapters, the
+entire content may be placed in 'chapter1.tex' and included in
+'doct.tex' using \input{chapter1}. In this case, remove the line
+'\chapter{...}' command from 'chapter1.tex'.
 
 
 5. Writing Theorems, Proofs, Lemmas, Definitions, Remarks,
@@ -117,8 +113,8 @@ can include the entire content in 'chapter1.tex' and include it in
 Assumptions, and Propositions
 ------------------------------
 
-For writing different math environments such as theorems and proofs
-the following environments are defined.
+The template defines the following mathematical and theorem-like
+environments:
 
     Theorem     :    \begin{theorem} ... \end{theorem}
     Proof       :    \begin{proof} ... \end{proof}             
@@ -139,26 +135,24 @@ the following environments are defined.
 6. Addition of Bibliography
 ---------------------------
 
-Bibliographies can be added using BibTeX tool with the appropriate 
-citation style. A separate file named 'doct.bib' is provided to 
-specify the BibTeX entries of the citations present in the 
-report/thesis. In 'doct.tex', bibliographies can be included using 
-the following commands
+The template supports bibliography management through BibTeX. Citation
+entries should be stored in 'doct.bib', and the bibliography can be
+included in 'doct.tex' using the following commands:
 
 			\bibliographystyle{IEEEtran}
 			\bibliography{doct}
-				
-In the template, the bibliography style of IEEE is used. However, you
-can replace the style IEEEtran with other styles such as unsrt, plain,
-and apa.
+
+By default, the template uses the IEEE bibliography style
+(IEEEtran). This can be changed to any supported BibTeX style,
+including unsrt, plain, and apa.
 
 
 7. Building the LaTeX Source
 ----------------------------
 
-If you have installed the tool 'latexmk', just build 'doct.tex' 
-using latexmk. Otherwise, you need to follow the default LaTeX 
-building process using the following steps:
+If the tool 'latexmk' is installed, build 'doct.tex' using
+'latexmk'. Otherwise, compile the document manually using the standard
+LaTeX build sequence:
 
 1. Build doct.tex using pdflatex
 2. Build doct.bib using bibtex
@@ -166,7 +160,8 @@ building process using the following steps:
 4. Build doct.tex using pdflatex
 
 Thank you. 
-The latest version of the LaTeX template can be downloaded from 
+
+The latest version of the LaTeX template can be downloaded from
 https://github.com/4sarathbabu/IISTThesis
 
 If you find any errors or have any suggestions send mail to 

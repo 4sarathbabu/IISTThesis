@@ -18,3 +18,21 @@
 *.lof
 *.lot
 auto/
+# LaTeX intermediate files
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.lol
+*.synctex.gz
+*.xdv
+
+# Generated output
+doct.pdf
+
+# Keep required template assets
+!logo.pdf
+!figures/latexlogo.pdf

@@ -1,0 +1,117 @@
+%% -----------'iist-draft.sty' Draft & Review Tooling for IISTThesis 2.0 ---%%
+%%
+%% Companion module to iist.cls (Phase 2.4 / 2.5 of the IISTThesis 2.0
+%% modernization). Loaded by iist.cls ONLY when the `draft' and/or
+%% `review' class option is given, so its dependencies (eso-pic,
+%% lineno) are never pulled into an ordinary final-mode build.
+%%
+%% This file assumes it is loaded from within iist.cls, AFTER
+%% \ifIIST@draft / \ifIIST@review have already been declared and set
+%% by \ProcessOptions there. It is not intended to be loaded standalone.
+%%
+%% Kept as a separate file (rather than inlined in iist.cls) because
+%% draft/review tooling is genuinely optional, self-contained, and
+%% dependency-bearing -- a clean case for separating concerns without
+%% fragmenting the parts of the class that define the thesis's actual
+%% document structure.
+%% ------------------------------------------------------------------ %%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{iist-draft}[2026/08/04 IISTThesis 2.0 draft/review tooling]
+
+
+%% ---- Draft watermark (Phase 2.4) ---- %%
+\ifIIST@draft
+
+  \RequirePackage{eso-pic} % small, actively-maintained shipout-picture hook;
+                            % chosen over manual output-routine patching for
+                            % robustness across engines (pdflatex/xelatex/lualatex)
+
+  % Build timestamp via plain TeX count-register arithmetic (the same
+  % technique used by several LaTeX classes with a similar watermark
+  % feature) so that no additional package is needed solely to render
+  % an hour:minute stamp.
+  \newcount\IIST@hour
+  \newcount\IIST@minute
+  \IIST@hour=\time
+  \divide\IIST@hour by 60
+  \IIST@minute=\time
+  \count@=\IIST@hour
+  \multiply\count@ by -60
+  \advance\IIST@minute by \count@
+
+  \newcommand{\IIST@timestamp}{%
+    \today\space--\space
+    \ifnum\IIST@hour<10 0\fi\number\IIST@hour:%
+    \ifnum\IIST@minute<10 0\fi\number\IIST@minute
+  }
+
+  % User-facing hook so a chapter-in-progress can be labelled, e.g.
+  % \draftversion{Chapter 5 -- Rev 3}, echoing the revision-numbered
+  % governing-document convention already used for this dissertation's
+  % engineering specifications.
+  \newcommand{\IIST@draftversion}{v1.0}
+  \newcommand{\draftversion}[1]{\renewcommand{\IIST@draftversion}{#1}}
+
+  % Watermark: a single unobtrusive line near the top of the text
+  % block, light grey, sans-serif, small -- deliberately not a large
+  % diagonal banner, so it does not interfere with reading a draft
+  % chapter on screen or on paper.
+  %
+  % Uses the UNSTARRED \AddToShipoutPictureFG so the watermark repeats
+  % on every page. The starred form (\AddToShipoutPictureFG*) is a
+  % one-shot hook consumed by the very next shipout only -- confirmed
+  % by direct testing, where a starred registration produced a
+  % watermark on page 1 alone and nowhere else, which is the opposite
+  % of what a document-wide draft marker needs. (An earlier version
+  % also wrapped this in \raisebox to nudge it down slightly; that
+  % pushed the whole line off the visible page, so the plain
+  % \AtTextUpperLeft placement -- confirmed by direct visual testing --
+  % is used as-is.)
+  \AddToShipoutPictureFG{%
+    \AtTextUpperLeft{%
+      \makebox[\textwidth][c]{%
+        \sffamily\small\color{gray!55}%
+        DRAFT\space--\space\IIST@draftversion\space--\space\IIST@timestamp
+      }%
+    }%
+  }
+
+\fi
+
+
+%% ---- Review mode: line numbering compatible with amsmath (Phase 2.5) ---%%
+\ifIIST@review
+
+  \RequirePackage[switch,pagewise]{lineno}
+
+  % Standard, widely-documented fix for combining lineno with amsmath
+  % display environments: each environment is wrapped with
+  % \linenomath/\endlinenomath so numbered equations do not desynchronize
+  % line numbering. This is the generic, published workaround for this
+  % specific package interaction (documented in the lineno package's own
+  % FAQ), reproduced here in IIST's macro-naming style -- not
+  % implementation borrowed from any particular other thesis template.
+  \newcommand*\IIST@patchAmsMathEnv[1]{%
+    \expandafter\let\csname IIST@old#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\let\csname IIST@oldend#1\expandafter\endcsname\csname end#1\endcsname
+    \renewenvironment{#1}%
+      {\linenomath\csname IIST@old#1\endcsname}%
+      {\csname IIST@oldend#1\endcsname\endlinenomath}%
+  }
+
+  \AtBeginDocument{
+    \IIST@patchAmsMathEnv{equation}
+    \IIST@patchAmsMathEnv{equation*}
+    \IIST@patchAmsMathEnv{align}
+    \IIST@patchAmsMathEnv{align*}
+    \IIST@patchAmsMathEnv{gather}
+    \IIST@patchAmsMathEnv{gather*}
+  }
+
+  % Line numbers are switched on per-chapter by \makechaptersettings in
+  % iist.cls (via \ifIIST@review \linenumbers \fi), not here, so that
+  % front matter (roman-numbered pages) is never line-numbered.
+
+\fi
+
+\endinput
